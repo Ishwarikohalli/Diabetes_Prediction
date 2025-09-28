@@ -1,0 +1,58 @@
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<style type="text/css">
+	body{
+		background-image: url("https://diabetesonthenet.com/wp-content/uploads/DNA-concept_1200x630.jpg");
+
+  		background-repeat: no-repeat;
+  		background-color: #cccccc;
+		background-size: cover;
+		color: #1c151c; 
+        font-family: 'Arimo', sans-serif;
+	}
+	h1 {
+        color: #ffff; /* Tomato color for h1 */
+        font-family: 'Pacifico', cursive;
+        text-align: center;
+		font-size: 70px; /* Change to desired size */
+	}
+	
+</style>
+
+</head>
+
+<body>
+<div class="login">
+
+	<h1 class="demo">Diabetes Prediction</h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Pregnancies" placeholder="Pregnancies" required="required" />
+        <input type="text" name="Glucose" placeholder="Glucose" required="required" />
+		<input type="text" name="BloodPressure" placeholder="BloodPressure" required="required" />
+		<input type="text" name="SkinThickness" placeholder="SkinThickness" required="required" />
+		<input type="text" name="Insulin" placeholder="Insulin" required="required" />
+		<input type="text" name="BMI" placeholder="BMI" required="required" />
+		<input type="text" name="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction" required="required" />
+		<input type="text" name="Age" placeholder="Age" required="required" />
+		<input type="text" name="Outcome" placeholder="Outcome" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+</body>
+</html>
